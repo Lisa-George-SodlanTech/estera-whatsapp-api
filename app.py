@@ -22,26 +22,22 @@ def send_whatsapp():
         else:
             data = request.form.to_dict()
         
-        # Debug: Poora data print karo (Render logs mein dikhega)
+        # Debug: Poora data print karo
         print(f"Received data: {data}")
         
-        # Field mapping - TERE EXACT FORM KE HISAAB SE
+        # Field mapping
         full_name = data.get('full_name') or data.get('Full Name') or data.get('your-name', 'Not provided')
         email = data.get('email') or data.get('Email Address') or data.get('your-email', 'Not provided')
         phone = data.get('phone') or data.get('Phone Number') or data.get('your-phone', 'Not provided')
         pickup = data.get('pickup') or data.get('Pickup Address') or data.get('pickup-address', 'Not provided')
         destination = data.get('destination') or data.get('Destination Address') or data.get('destination-address', 'Not provided')
-        
-        # Vehicle field - form mein "How Many Passengers?" hai
         vehicle = data.get('vehicle') or data.get('How Many Passengers?') or data.get('passengers', 'Not specified')
-        
         date = data.get('date') or data.get('Date', 'Not provided')
         
-        # Time fix karo - 12:00 PM ko sahi se handle karega
+        # Time fix
         time_raw = data.get('time') or data.get('Time', 'Not provided')
         try:
-            # Agar time "12:00" format mein hai to "12:00 PM" bana do
-            if time_raw and ':' in time_raw and not 'AM' in time_raw and not 'PM' in time_raw:
+            if time_raw and ':' in time_raw and 'AM' not in time_raw and 'PM' not in time_raw:
                 time_obj = datetime.strptime(time_raw, '%H:%M')
                 time = time_obj.strftime('%I:%M %p')
             else:
