@@ -61,7 +61,7 @@ def send_whatsapp():
 ⏰ *Time:* {time}
 💬 *Additional:* {additional}
 ━━━━━━━━━━━━━━━━━━━━━
-
+"""
         
         client.messages.create(
             body=message,
