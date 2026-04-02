@@ -9,7 +9,7 @@ app = Flask(__name__)
 TWILIO_SID = os.environ.get("TWILIO_SID")
 TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
 TWILIO_WHATSAPP = "whatsapp:+14155238886"
-YOUR_WHATSAPP = "whatsapp:+918923313578"
+YOUR_WHATSAPP = "whatsapp:+18139932575"
 
 client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
@@ -65,7 +65,7 @@ def send_whatsapp():
 ⏰ *Time:* {time}
 💬 *Additional:* {additional}
 ━━━━━━━━━━━━━━━━━━━━━
-⚡ Reply to confirm booking"""
+
         
         client.messages.create(
             body=message,
