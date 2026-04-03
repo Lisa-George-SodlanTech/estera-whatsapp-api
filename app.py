@@ -9,20 +9,20 @@ app = Flask(__name__)
 TWILIO_SID = os.environ.get("TWILIO_SID")
 TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
 TWILIO_WHATSAPP = "whatsapp:+14155238886"
-YOUR_WHATSAPP = "whatsapp:+18139932575"
+YOUR_WHATSAPP = "whatsapp:+918923313578"
 
 client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
 @app.route('/webhook/whatsapp', methods=['POST'])
 def send_whatsapp():
     try:
-        # Form data get karo
+        
         if request.is_json:
             data = request.get_json()
         else:
             data = request.form.to_dict()
         
-        # Debug: Poora data print karo
+      
         print(f"Received data: {data}")
         
         # Field mapping
